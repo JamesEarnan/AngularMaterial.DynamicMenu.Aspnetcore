@@ -1,0 +1,39 @@
+<ul class="nav" *ngIf="IsBased">
+        <li class="nav-item" *ngFor="let menu of menus ; index as i">
+    
+                <div *ngIf="!menus[i].route">
+    
+                <button class="dropdown-toggle" mat-menu-item [matMenuTriggerFor]="menu">
+                {{menus[i].displayName}}</button>
+                <mat-menu #menu="matMenu">
+                    <navmenuitem [menus]="menus[i].childMenus" [IsBased]="false"></navmenuitem>
+                </mat-menu>
+                
+                </div>
+    
+                <button mat-menu-item routerLink="/{{menus[i].route}}"
+                *ngIf="menus[i].route">
+                {{menus[i].displayName}}</button>
+            
+        </li > 
+    </ul>
+<div *ngIf="!IsBased">
+        <li  class="nav-item" *ngFor="let menu of menus ; index as i">
+    
+            <div *ngIf="!menus[i].route">
+        
+            <button mat-menu-item [matMenuTriggerFor]="menu">
+            {{menus[i].displayName}}</button>
+            <mat-menu #menu="matMenu">
+                <navmenuitem [menus]="menus[i].childMenus"  [IsBased]="false"></navmenuitem>
+            </mat-menu>
+            
+            </div>
+        
+            <button mat-menu-item routerLink="/{{menus[i].route}}"
+            *ngIf="menus[i].route">
+            {{menus[i].displayName}}</button>
+        
+        </li > 
+</div>
+    
