@@ -18,7 +18,7 @@
         </li > 
     </ul>
 <div *ngIf="!IsBased">
-        <li  class="nav-item" *ngFor="let menu of menus ; index as i">
+        <div  class="nav-item" *ngFor="let menu of menus ; index as i">
     
             <div *ngIf="!menus[i].route">
         
@@ -34,6 +34,6 @@
             *ngIf="menus[i].route">
             {{menus[i].displayName}}</button>
         
-        </li > 
+        </div > 
 </div>
     
